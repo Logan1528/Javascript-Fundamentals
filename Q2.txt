@@ -1,0 +1,42 @@
+Q2.Create a JavaScript program that demonstrates the basic usage of regular expressions. Write a function
+that takes a regex pattern and a string as input and returns true if there is a match, and false otherwise. Test
+the function with various patterns and strings.
+
+// Function to test if there is a match between a regex pattern and a string
+function testRegex(pattern, str) {
+  // Create a RegExp object with the provided pattern
+  const regex = new RegExp(pattern);
+
+  // Test if the string matches the regex pattern
+  const isMatch = regex.test(str);
+
+  // Return the result
+  return isMatch;
+
+    
+}
+
+const pattern1 = /\d+/;  // Match one or more digits
+
+const pattern2 = /[a-zA-Z]+/;  // Match one or more alphabetical characters
+
+const pattern3 = /^Hello/;  // Match strings that start with "Hello"
+
+const string1 = "98745zyx";
+
+const string2 = "Hello, World!";
+
+const string3 = "Greetings";
+
+console.log(`Pattern 1 (${pattern1}): ${testRegex(pattern1, string1)}`);  
+
+console.log(`Pattern 2 (${pattern2}): ${testRegex(pattern2, string2)}`);  
+
+console.log(`Pattern 3 (${pattern3}): ${testRegex(pattern3, string3)}`);
+
+Output:
+
+Pattern 1 (/\d+/): true
+Pattern 2 (/[a-zA-Z]+/): true
+Pattern 3 (/^Hello/): false
+

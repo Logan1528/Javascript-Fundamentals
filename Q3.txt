@@ -1,0 +1,54 @@
+Q3. Write a JavaScript program that demonstrates the use of character classes in regular expressions.
+Create a function that searches for specific character classes in a given string and returns the matches. Test
+the function with patterns for digits, uppercase letters, lowercase letters, and special characters.
+
+
+function search(inputString){
+    
+    const digitPattern = /\d/g;
+    const uppercasePattern = /[A-Z]/g;
+    const lowercasePattern = /[a-z]/g;
+    const specialCharacterPattern = /[^a-zA-Z0-9]/g;
+    
+    const findMatches = (pattern) => {
+        return inputString.match(pattern) || [];
+    };
+    
+    const digitMatches = findMatches(digitPattern);
+    const uppercaseMatches = findMatches(uppercasePattern);
+    const lowercaseMatches = findMatches(lowercasePattern);
+    const specialCharacterMatches = findMatches(specialCharacterPattern);
+    
+    return {
+        digits: digitMatches,
+        uppercaseLetters: uppercaseMatches,
+        lowercaseLetters: lowercaseMatches,
+        specialCharacters: specialCharacterMatches,
+    };
+}
+
+const testString = "Hello321! Have a Great Day!";
+
+const result = search(testString);
+
+console.log("Original String:", testString);
+console.log("Digits:", result.digits);
+console.log("Uppercase Letters:", result.uppercaseLetters);
+console.log("Lowercase Letters:", result.lowercaseLetters);
+console.log("Special Characters:", result.specialCharacters);
+
+
+Output:
+
+Original String: Hello321! Have a Great Day!
+Digits: [ '3', '2', '1' ]
+Uppercase Letters: [ 'H', 'H', 'G', 'D' ]
+Lowercase Letters: [
+  'e', 'l', 'l', 'o',
+  'a', 'v', 'e', 'a',
+  'r', 'e', 'a', 't',
+  'a', 'y'
+]
+Special Characters: [ '!', ' ', ' ', ' ', ' ', '!' ]
+
+

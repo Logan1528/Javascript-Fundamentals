@@ -1,0 +1,53 @@
+Q1. Write a JavaScript function called outerFunction that takes a parameter and returns an inner function.
+The inner function should access both the parameter of outerFunction and a variable declared within
+outerFunction. Demonstrate how lexical scoping allows the inner function to maintain access to these
+variables even after outerFunction has finished executing.
+
+
+
+//created outerFunction that takes a parameter
+function outerFunction(parameter){
+    
+    let outerVariable = "I am from outerfunction";
+    
+    //inner function will access both the parameter of outerFunction and a variable declared within outerFunction.
+    function innerFunction(){
+        
+        console.log("Parameter form outerFucntion:",parameter);
+        
+        console.log("Outer variable from outerFunction:", outerVariable);
+    }
+    
+    return innerFunction;
+}
+
+const myOuterFunctionInstance = outerFunction("Hello PW Skills");
+
+myOuterFunctionInstance();
+
+
+Output
+
+Parameter form outerFucntion: Hello PW Skills
+Outer variable from outerFunction: I am from outerfunction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
